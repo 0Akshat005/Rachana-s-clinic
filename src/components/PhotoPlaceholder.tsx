@@ -1,0 +1,5 @@
+import { Camera } from "lucide-react";
+import { cn } from "../lib/utils";
+export function PhotoPlaceholder({ label, alt, className, priority = false }: { label: string; alt: string; className?: string; priority?: boolean }) {
+  return <div role="img" aria-label={alt} data-fetchpriority={priority ? "high" : undefined} className={cn("relative isolate flex overflow-hidden rounded-2xl border border-line bg-[radial-gradient(circle_at_78%_25%,rgba(195,154,107,.30),transparent_24%),linear-gradient(135deg,#eee7dc,#fbfaf7_48%,#d8cabc)]", className)}><div className="absolute -bottom-10 -left-8 h-44 w-44 rounded-full border border-navy-900/10"/><div className="absolute right-8 top-9 h-20 w-20 rounded-full border border-gold-500/40"/><div className="relative m-auto max-w-[18rem] px-6 text-center"><Camera className="mx-auto mb-3 h-7 w-7 text-navy-900/60" strokeWidth={1.3}/><p className="text-xs font-semibold uppercase tracking-[.12em] text-navy-900/75">Photo placeholder</p><p className="mt-2 text-sm leading-snug text-muted">{label}</p></div></div>;
+}
