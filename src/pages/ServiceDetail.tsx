@@ -1,17 +1,10 @@
-import { AlertTriangle, ArrowRight, CheckCircle2, ChevronRight, MessageCircle } from "lucide-react";
+import { AlertTriangle, ArrowRight, ChevronRight, MessageCircle } from "lucide-react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { clinic, services } from "../data/clinic";
 import { CTA } from "../components/CTA";
 import { SEO } from "../components/SEO";
 import { ServiceIcon, ServiceIconBadge } from "../components/ServiceIcon";
 import { Accordion, Badge } from "../components/ui";
-
-const spineHighlights = [
-  "Neck & Cervical Care",
-  "Low-Back & Sciatica",
-  "Disc / PIVD Assessment",
-  "Postural & Core Guidance",
-] as const;
 
 export default function ServiceDetail() {
   const { slug } = useParams();
@@ -61,14 +54,13 @@ export default function ServiceDetail() {
           <div className="mt-8 grid items-center gap-10 lg:mt-10 lg:grid-cols-[0.94fr_1.06fr] lg:gap-14">
             {/* Left Visual Column */}
             {isSpineCare ? (
-              <div className="relative mx-auto w-full max-w-[510px] lg:max-w-none">
-                {/* Subtle warm atmospheric halo */}
+              <div className="relative mx-auto w-full max-w-[400px]">
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute -inset-3 -z-10 rounded-[2.25rem] bg-gradient-to-tr from-[#E8DEC9]/60 via-transparent to-[#C39A6B]/25 blur-xl"
+                  className="pointer-events-none absolute -inset-2.5 -z-10 rounded-[2rem] bg-gradient-to-tr from-[#E8DEC9]/55 via-transparent to-[#C39A6B]/20 blur-xl"
                 />
-                <figure className="group relative overflow-hidden rounded-[1.85rem] border border-[#DED4C3] bg-gradient-to-br from-white via-[#FAF7F1] to-[#EFE7D8] p-2.5 shadow-[0_24px_52px_-16px_rgba(14,28,56,0.15)] sm:p-3.5">
-                  <div className="relative aspect-square w-full overflow-hidden rounded-[1.35rem] border border-[#E5DCCB] bg-[#F7F3EB]">
+                <figure className="group relative overflow-hidden rounded-[1.65rem] border border-[#DED4C3] bg-gradient-to-br from-white via-[#FAF7F1] to-[#EFE7D8] p-2 shadow-[0_20px_46px_-16px_rgba(14,28,56,0.14)] sm:p-2.5">
+                  <div className="relative aspect-square w-full overflow-hidden rounded-[1.25rem] border border-[#E5DCCB] bg-[#F7F3EB]">
                     <img
                       src="/images/services/spine-care-hero.jpg"
                       alt="Clinical spine care visualization illustrating relief for neck pain, back pain, disc health support, and mobility improvement at Rachana Physiotherapy Clinic"
@@ -80,15 +72,27 @@ export default function ServiceDetail() {
                       className="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.015]"
                     />
                   </div>
-                  <figcaption className="mt-2.5 flex flex-wrap items-center justify-between gap-2 px-2 py-1 text-xs">
-                    <span className="inline-flex items-center gap-2 font-medium text-navy-900">
-                      <span className="h-2 w-2 rounded-full bg-gold-600" />
-                      Cervical · Thoracic · Lumbar · Disc Care
-                    </span>
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.13em] text-gold-700">
-                      Assessment-Led Care
-                    </span>
-                  </figcaption>
+                </figure>
+              </div>
+            ) : service.slug === "osteopathy-mrt" ? (
+              <div className="relative mx-auto w-full max-w-[490px] lg:max-w-none">
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -inset-2.5 -z-10 rounded-[2rem] bg-gradient-to-tr from-[#E8DEC9]/55 via-transparent to-[#C39A6B]/20 blur-xl"
+                />
+                <figure className="group relative overflow-hidden rounded-[1.65rem] border border-[#DED4C3] bg-gradient-to-br from-white via-[#FAF7F1] to-[#EFE7D8] p-2 shadow-[0_20px_46px_-16px_rgba(14,28,56,0.14)] sm:p-2.5">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[1.25rem] border border-[#E5DCCB] bg-[#F7F3EB]">
+                    <img
+                      src="/images/services/osteopathy-mrt-hero.jpg"
+                      alt="Osteopathy and Matrix Rhythm Therapy hands-on manual technique easing tight muscles, promoting natural rhythm, and supporting comfortable movement at Rachana Physiotherapy Clinic"
+                      width={1024}
+                      height={768}
+                      fetchPriority="high"
+                      loading="eager"
+                      decoding="async"
+                      className="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.015]"
+                    />
+                  </div>
                 </figure>
               </div>
             ) : (
@@ -124,17 +128,6 @@ export default function ServiceDetail() {
               <p className="mt-5 max-w-2xl text-justify text-lg leading-relaxed text-muted">
                 {service.summary}
               </p>
-
-              {isSpineCare && (
-                <div className="mt-6 grid grid-cols-2 gap-2.5 border-y border-line py-4 text-sm text-navy-900">
-                  {spineHighlights.map((item) => (
-                    <span key={item} className="inline-flex items-center gap-2 font-medium">
-                      <CheckCircle2 size={16} className="shrink-0 text-gold-700" />
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              )}
 
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link
