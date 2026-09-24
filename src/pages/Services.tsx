@@ -26,7 +26,7 @@ export default function Services() {
             Care that starts with <em>what you need.</em>
           </h1>
           <p className="mt-5 max-w-2xl text-justify text-[17px] leading-relaxed text-muted">
-            Every plan begins with an assessment and a conversation. Browse the approaches available at this physiotherapy clinic in Manish Nagar, Nagpur.
+            Every plan begins with an assessment and a conversation. Browse the clinical approaches and therapies available to support your recovery.
           </p>
         </div>
       </section>

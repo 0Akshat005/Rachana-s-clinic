@@ -106,17 +106,13 @@ export default function ServiceDetail() {
 
             {/* Right Editorial Content Column */}
             <div>
-              <div className="flex flex-wrap items-center gap-3.5">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[#E2D7C5] bg-gradient-to-br from-[#FAF7F1] to-[#EBE1D0] shadow-sm">
-                  <ServiceIcon name={service.icon} className="h-8 w-8 text-navy-900" />
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#E2D7C5] bg-gradient-to-br from-[#FAF7F1] to-[#EBE1D0] shadow-sm">
+                  <ServiceIcon name={service.icon} className="h-7 w-7 text-navy-900" />
                 </div>
-                <span aria-hidden="true" className="h-7 w-px bg-[#DFD6C7]" />
                 <Badge className="border-[#DFD4C0] bg-[#F6F1E7] px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-gold-700">
                   {service.category}
                 </Badge>
-                <span className="text-xs font-medium tracking-wide text-muted">
-                  Manish Nagar, Nagpur
-                </span>
               </div>
 
               <h1 className="display mt-5 text-[clamp(2.5rem,4.8vw,4.15rem)] leading-[1.08]">
