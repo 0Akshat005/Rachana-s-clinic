@@ -1,4 +1,5 @@
-import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, CircleHelp, Dumbbell, HeartPulse, MapPin, MessageCircle, MoveRight, ShieldCheck, Sparkles, Stethoscope } from "lucide-react";
+import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, CircleHelp, Dumbbell, HeartPulse, MapPin, MessageCircle, MoveRight, ShieldCheck, Stethoscope } from "lucide-react";
+import HealthAndSafetySharpIcon from '@mui/icons-material/HealthAndSafetySharp';
 import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -11,7 +12,7 @@ import { ServiceIcon } from "../components/ServiceIcon";
 import { Accordion, Badge, Card, TooltipText } from "../components/ui";
 
 const concerns = [
-  ["Back Pain", "Low-back support and movement guidance", "spine-care", HeartPulse], ["Neck & Cervical", "Care for neck stiffness and cervical concerns", "spine-care", Stethoscope], ["Disc / PIVD", "Assessment for disc-related symptoms", "spine-care", ShieldCheck], ["Sports Injuries", "Build toward your activity goals", "sports-rehab", Dumbbell], ["Wellness & Pilates", "Move with more control and confidence", "pilates", Sparkles],
+  ["Back Pain", "Low-back support and movement guidance", "spine-care", HeartPulse], ["Neck & Cervical", "Care for neck stiffness and cervical concerns", "spine-care", Stethoscope], ["Disc / PIVD", "Assessment for disc-related symptoms", "spine-care", ShieldCheck], ["Sports Injuries", "Build toward your activity goals", "sports-rehab", Dumbbell], ["Wellness & Pilates", "Move with more control and confidence", "pilates", HealthAndSafetySharpIcon],
 ] as const;
 const steps = [["01", "Assessment", "We listen, assess movement and understand your goals."], ["02", "Personal plan", "A clear, practical plan is shaped around your needs."], ["03", "Treatment", "Suitable hands-on care and guided movement are explained."], ["04", "Recovery & prevention", "Build habits and confidence for everyday movement."]] as const; // [CONFIRM process]
 
