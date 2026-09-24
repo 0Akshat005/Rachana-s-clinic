@@ -34,21 +34,16 @@ function ServiceGrid() {
             to={`/services/${service.slug}`}
             className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-[#E4DDD2] bg-white p-7 shadow-[0_10px_28px_-14px_rgba(14,28,56,0.08)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-gold-500/80 hover:shadow-[0_22px_42px_-16px_rgba(14,28,56,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2"
           >
-            <div>
-              <div className="flex items-start justify-between gap-3">
-                <ServiceIconBadge name={service.icon} />
-                <span className="mt-1 inline-flex items-center rounded-full border border-[#E7DEC9] bg-[#F9F6F0] px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.13em] text-gold-700">
-                  {service.category}
-                </span>
-              </div>
-              <h3 className="mt-6 font-display text-[22px] font-semibold leading-[1.24] tracking-[-0.01em] text-navy-900 transition-colors duration-200 group-hover:text-[#172D56]">
+            <div className="flex flex-col items-center">
+              <ServiceIconBadge name={service.icon} />
+              <h3 className="mt-6 text-center font-display text-[22px] font-bold leading-[1.24] tracking-[-0.01em] text-[#0E1C38] transition-colors duration-200 group-hover:text-[#172D56]">
                 {service.title}
               </h3>
-              <p className="mt-3 line-clamp-3 text-[15px] leading-[1.62] text-muted">
+              <p className="mt-3 w-full line-clamp-3 text-justify [text-align-last:center] text-[15px] leading-[1.62] text-muted">
                 {service.blurb}
               </p>
             </div>
-            <div className="mt-7 flex items-center justify-between border-t border-[#EFEAE1] pt-4">
+            <div className="mt-7 flex w-full items-center justify-between border-t border-[#EFEAE1] pt-4">
               <span className="text-[13.5px] font-semibold tracking-[0.01em] text-gold-700 transition-colors duration-200 group-hover:text-navy-900">
                 Learn more
               </span>

@@ -492,7 +492,7 @@ export function ServiceIconBadge({
 }) {
   return (
     <div
-      className={`relative flex h-[74px] w-[74px] shrink-0 items-center justify-center rounded-full border border-[#E3D8C6] bg-gradient-to-br from-[#FAF7F1] via-[#F3EDE2] to-[#EAE0D0] shadow-[inset_0_1px_0_rgba(255,255,255,0.85),0_6px_16px_-6px_rgba(14,28,56,0.08)] transition-all duration-300 ease-out group-hover:scale-[1.04] group-hover:border-gold-500/70 group-hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_10px_22px_-6px_rgba(168,122,69,0.2)] ${className}`}
+      className={`relative mx-auto flex h-[86px] w-[86px] shrink-0 items-center justify-center rounded-full border border-[#E3D8C6] bg-gradient-to-br from-[#FAF7F1] via-[#F3EDE2] to-[#EAE0D0] shadow-[inset_0_1px_0_rgba(255,255,255,0.85),0_6px_16px_-6px_rgba(14,28,56,0.08)] transition-all duration-300 ease-out group-hover:scale-[1.04] group-hover:border-gold-500/70 group-hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_10px_22px_-6px_rgba(168,122,69,0.2)] ${className}`}
     >
       <span
         aria-hidden="true"
@@ -500,7 +500,7 @@ export function ServiceIconBadge({
       />
       <ServiceIcon
         name={name}
-        className="relative z-10 h-[42px] w-[42px] text-navy-900 transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+        className="relative z-10 h-[46px] w-[46px] text-navy-900 transition-transform duration-300 ease-out group-hover:scale-[1.03]"
       />
     </div>
   );
