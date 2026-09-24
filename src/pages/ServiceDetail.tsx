@@ -32,7 +32,7 @@ const serviceHeroMedia: Record<
     width: 1024,
     height: 768,
     aspectClass: "aspect-[4/3]",
-    maxWidthClass: "max-w-[395px]",
+    maxWidthClass: "max-w-[524px]",
   },
 };
 
@@ -56,6 +56,7 @@ export default function ServiceDetail() {
   };
 
   const heroMedia = serviceHeroMedia[service.slug];
+  const isDryNeedling = service.slug === "dry-needling";
 
   return (
     <>
@@ -66,7 +67,11 @@ export default function ServiceDetail() {
       />
 
       <section className="relative overflow-hidden border-b border-line">
-        <div className="container-site py-8 sm:py-12 lg:py-14">
+        <div
+          className={`container-site ${
+            isDryNeedling ? "py-6 sm:py-8 lg:py-8" : "py-8 sm:py-12 lg:py-14"
+          }`}
+        >
           <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-sm text-muted">
             <Link to="/" className="transition-colors hover:text-gold-700">
               Home
@@ -81,9 +86,28 @@ export default function ServiceDetail() {
             </span>
           </nav>
 
-          <div className="mt-8 grid items-center gap-10 lg:mt-10 lg:grid-cols-[0.94fr_1.06fr] lg:gap-14">
+          <div
+            className={`grid items-center gap-8 ${
+              isDryNeedling
+                ? "mt-5 lg:mt-5 lg:grid-cols-[0.98fr_1.02fr] lg:gap-12"
+                : "mt-8 lg:mt-10 lg:grid-cols-[0.94fr_1.06fr] lg:gap-14"
+            }`}
+          >
             {/* Left Visual Column */}
-            {heroMedia ? (
+            {isDryNeedling && heroMedia ? (
+              <figure className="relative mx-auto w-full max-w-[524px] overflow-hidden rounded-2xl border border-[#DED4C3] bg-[#FAF7F1] shadow-[0_16px_38px_-16px_rgba(14,28,56,0.13)] lg:mx-0">
+                <img
+                  src={heroMedia.src}
+                  alt={heroMedia.alt}
+                  width={heroMedia.width}
+                  height={heroMedia.height}
+                  fetchPriority="high"
+                  loading="eager"
+                  decoding="async"
+                  className="aspect-[4/3] h-full w-full object-cover object-center"
+                />
+              </figure>
+            ) : heroMedia ? (
               <div className={`relative mx-auto w-full ${heroMedia.maxWidthClass}`}>
                 <div
                   aria-hidden="true"
