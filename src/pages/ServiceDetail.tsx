@@ -1,4 +1,4 @@
-import { AlertTriangle, ArrowRight, ChevronRight, MessageCircle } from "lucide-react";
+import { AlertTriangle, ArrowRight, CheckCircle2, ChevronRight, MessageCircle } from "lucide-react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { clinic, services } from "../data/clinic";
 import { CTA } from "../components/CTA";
@@ -8,15 +8,16 @@ import { Accordion, Badge } from "../components/ui";
 
 const serviceHeroMedia: Record<
   string,
-  { src: string; alt: string; width: number; height: number; aspectClass: string; maxWidthClass: string }
+  { src: string; alt: string; width: number; height: number; aspectClass: string; maxWidthClass: string; imgPositionClass?: string }
 > = {
   "spine-care": {
     src: "/images/services/spine-care-hero.jpg",
     alt: "Clinical spine care visualization illustrating relief for neck pain, back pain, disc health support, and mobility improvement at Rachana Physiotherapy Clinic",
     width: 1024,
     height: 1024,
-    aspectClass: "aspect-square",
-    maxWidthClass: "max-w-[305px]",
+    aspectClass: "aspect-[11/10]",
+    maxWidthClass: "max-w-[490px]",
+    imgPositionClass: "object-[center_48%]",
   },
   "osteopathy-mrt": {
     src: "/images/services/osteopathy-mrt-hero.jpg",
@@ -24,7 +25,8 @@ const serviceHeroMedia: Record<
     width: 1024,
     height: 768,
     aspectClass: "aspect-[4/3]",
-    maxWidthClass: "max-w-[395px]",
+    maxWidthClass: "max-w-[535px]",
+    imgPositionClass: "object-center",
   },
   "dry-needling": {
     src: "/images/services/dry-needling-hero.jpg",
@@ -32,8 +34,54 @@ const serviceHeroMedia: Record<
     width: 1024,
     height: 768,
     aspectClass: "aspect-[4/3]",
-    maxWidthClass: "max-w-[524px]",
+    maxWidthClass: "max-w-[535px]",
+    imgPositionClass: "object-center",
   },
+};
+
+const serviceHighlights: Record<string, readonly [string, string, string, string]> = {
+  "spine-care": [
+    "Relieves Neck & Cervical Pain",
+    "Eases Low-Back Discomfort",
+    "Supports Disc & PIVD Health",
+    "Improves Everyday Mobility",
+  ],
+  "osteopathy-mrt": [
+    "Skilled Hands-On Technique",
+    "Promotes Natural Rhythm",
+    "Relaxes Tight Soft Tissue",
+    "Supports Comfortable Motion",
+  ],
+  "dry-needling": [
+    "Targeted Trigger-Point Care",
+    "Eases Painful Muscle Knots",
+    "Reduces Myofascial Tension",
+    "Assessment-Guided Precision",
+  ],
+  "cupping-hijama": [
+    "Gentle Myofascial Decompression",
+    "Eases Deep Muscle Tightness",
+    "Supports Local Circulation",
+    "Tailored Clinical Placement",
+  ],
+  "tecar-laser": [
+    "Deep-Tissue Thermal Support",
+    "Targeted Pain Management",
+    "Soft-Tissue Recovery Aid",
+    "Combined With Guided Movement",
+  ],
+  "sports-rehab": [
+    "Biomechanical Assessment",
+    "Graduated Strength & Control",
+    "Joint & Tendon Recovery",
+    "Return-to-Activity Planning",
+  ],
+  "pilates": [
+    "Controlled Core Alignment",
+    "Postural Strength & Balance",
+    "Individually Paced Guidance",
+    "Confidence in Daily Movement",
+  ],
 };
 
 export default function ServiceDetail() {
@@ -56,7 +104,7 @@ export default function ServiceDetail() {
   };
 
   const heroMedia = serviceHeroMedia[service.slug];
-  const isDryNeedling = service.slug === "dry-needling";
+  const highlights = serviceHighlights[service.slug] ?? serviceHighlights["spine-care"];
 
   return (
     <>
@@ -67,11 +115,7 @@ export default function ServiceDetail() {
       />
 
       <section className="relative overflow-hidden border-b border-line">
-        <div
-          className={`container-site ${
-            isDryNeedling ? "py-6 sm:py-8 lg:py-8" : "py-8 sm:py-12 lg:py-14"
-          }`}
-        >
+        <div className="container-site py-6 sm:py-8 lg:py-9">
           <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-sm text-muted">
             <Link to="/" className="transition-colors hover:text-gold-700">
               Home
@@ -86,34 +130,15 @@ export default function ServiceDetail() {
             </span>
           </nav>
 
-          <div
-            className={`grid items-center gap-8 ${
-              isDryNeedling
-                ? "mt-5 lg:mt-5 lg:grid-cols-[0.98fr_1.02fr] lg:gap-12"
-                : "mt-8 lg:mt-10 lg:grid-cols-[0.94fr_1.06fr] lg:gap-14"
-            }`}
-          >
-            {/* Left Visual Column */}
-            {isDryNeedling && heroMedia ? (
-              <figure className="relative mx-auto w-full max-w-[524px] overflow-hidden rounded-2xl border border-[#DED4C3] bg-[#FAF7F1] shadow-[0_16px_38px_-16px_rgba(14,28,56,0.13)] lg:mx-0">
-                <img
-                  src={heroMedia.src}
-                  alt={heroMedia.alt}
-                  width={heroMedia.width}
-                  height={heroMedia.height}
-                  fetchPriority="high"
-                  loading="eager"
-                  decoding="async"
-                  className="aspect-[4/3] h-full w-full object-cover object-center"
-                />
-              </figure>
-            ) : heroMedia ? (
-              <div className={`relative mx-auto w-full ${heroMedia.maxWidthClass}`}>
+          <div className="mt-5 grid items-center gap-8 lg:mt-6 lg:grid-cols-[1.03fr_0.97fr] lg:gap-12">
+            {/* Left Visual Column — Enlarged for clear legibility while preserving hero height */}
+            {heroMedia ? (
+              <div className={`relative mx-auto w-full ${heroMedia.maxWidthClass} lg:mx-0`}>
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute -inset-2 -z-10 rounded-[1.85rem] bg-gradient-to-tr from-[#E8DEC9]/50 via-transparent to-[#C39A6B]/20 blur-lg"
                 />
-                <figure className="group relative overflow-hidden rounded-[1.5rem] border border-[#DED4C3] bg-gradient-to-br from-white via-[#FAF7F1] to-[#EFE7D8] p-1.5 shadow-[0_18px_40px_-16px_rgba(14,28,56,0.14)] sm:p-2">
+                <figure className="group relative overflow-hidden rounded-[1.5rem] border border-[#DED4C3] bg-gradient-to-br from-white via-[#FAF7F1] to-[#EFE7D8] p-2 shadow-[0_18px_42px_-15px_rgba(14,28,56,0.14)] sm:p-2.5">
                   <div className={`relative ${heroMedia.aspectClass} w-full overflow-hidden rounded-[1.15rem] border border-[#E5DCCB] bg-[#F7F3EB]`}>
                     <img
                       src={heroMedia.src}
@@ -123,26 +148,29 @@ export default function ServiceDetail() {
                       fetchPriority="high"
                       loading="eager"
                       decoding="async"
-                      className="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.015]"
+                      className={`h-full w-full object-cover ${heroMedia.imgPositionClass ?? "object-center"} transition-transform duration-500 ease-out group-hover:scale-[1.015]`}
                     />
                   </div>
                 </figure>
               </div>
             ) : (
-              <div className="relative mx-auto flex w-full max-w-[460px] flex-col items-center justify-center overflow-hidden rounded-[1.85rem] border border-[#E2D8C7] bg-gradient-to-br from-white via-[#FAF7F1] to-[#EDE4D3] p-10 text-center shadow-[0_20px_44px_-16px_rgba(14,28,56,0.1)] sm:p-12 lg:max-w-none">
+              <div className="relative mx-auto flex min-h-[380px] w-full max-w-[520px] flex-col items-center justify-center overflow-hidden rounded-[1.65rem] border border-[#DED4C3] bg-gradient-to-br from-white via-[#FAF7F1] to-[#EDE4D3] p-9 text-center shadow-[0_18px_42px_-15px_rgba(14,28,56,0.12)] sm:p-11 lg:mx-0">
                 <ServiceIconBadge name={service.icon} className="h-28 w-28" />
                 <p className="mt-6 text-xs font-semibold uppercase tracking-[0.14em] text-gold-700">
                   {service.category} Physiotherapy
                 </p>
-                <p className="mt-2 font-display text-2xl font-semibold text-navy-900">
+                <p className="mt-2 font-display text-2xl font-semibold text-navy-900 sm:text-3xl">
                   {service.title}
                 </p>
                 <span className="mt-4 h-[2px] w-12 bg-gold-500" />
+                <p className="mt-4 max-w-sm text-center text-sm leading-relaxed text-muted">
+                  {service.blurb}
+                </p>
               </div>
             )}
 
-            {/* Right Editorial Content Column */}
-            <div>
+            {/* Right Editorial Content Column — Proportionally matched to the left visual */}
+            <div className="flex flex-col justify-center">
               <div className="flex flex-wrap items-center gap-3">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#E2D7C5] bg-gradient-to-br from-[#FAF7F1] to-[#EBE1D0] shadow-sm">
                   <ServiceIcon name={service.icon} className="h-7 w-7 text-navy-900" />
@@ -152,17 +180,26 @@ export default function ServiceDetail() {
                 </Badge>
               </div>
 
-              <h1 className="display mt-5 text-[clamp(2.5rem,4.8vw,4.15rem)] leading-[1.08]">
+              <h1 className="display mt-4 text-[clamp(2.15rem,3.6vw,3.35rem)] leading-[1.12] tracking-[-0.015em]">
                 {service.title}
               </h1>
 
-              <div className="mt-5 h-[2px] w-14 bg-gold-500" />
+              <div className="mt-4 h-[2px] w-14 bg-gold-500" />
 
-              <p className="mt-5 max-w-2xl text-justify text-lg leading-relaxed text-muted">
+              <p className="mt-4 max-w-xl text-justify text-[16.5px] leading-[1.65] text-muted sm:text-[17px]">
                 {service.summary}
               </p>
 
-              <div className="mt-7 flex flex-wrap gap-3">
+              <div className="mt-5 grid grid-cols-1 gap-x-5 gap-y-2 border-y border-[#E6DEC8] py-3.5 text-[13.5px] font-medium text-navy-900 sm:grid-cols-2">
+                {highlights.map((item) => (
+                  <span key={item} className="inline-flex items-center gap-2">
+                    <CheckCircle2 size={15} className="shrink-0 text-gold-700" />
+                    <span>{item}</span>
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-3">
                 <Link
                   data-track="book"
                   to="/contact#booking"
