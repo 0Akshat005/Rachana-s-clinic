@@ -6,6 +6,36 @@ import { SEO } from "../components/SEO";
 import { ServiceIcon, ServiceIconBadge } from "../components/ServiceIcon";
 import { Accordion, Badge } from "../components/ui";
 
+const serviceHeroMedia: Record<
+  string,
+  { src: string; alt: string; width: number; height: number; aspectClass: string; maxWidthClass: string }
+> = {
+  "spine-care": {
+    src: "/images/services/spine-care-hero.jpg",
+    alt: "Clinical spine care visualization illustrating relief for neck pain, back pain, disc health support, and mobility improvement at Rachana Physiotherapy Clinic",
+    width: 1024,
+    height: 1024,
+    aspectClass: "aspect-square",
+    maxWidthClass: "max-w-[305px]",
+  },
+  "osteopathy-mrt": {
+    src: "/images/services/osteopathy-mrt-hero.jpg",
+    alt: "Osteopathy and Matrix Rhythm Therapy hands-on manual technique easing tight muscles, promoting natural rhythm, and supporting comfortable movement at Rachana Physiotherapy Clinic",
+    width: 1024,
+    height: 768,
+    aspectClass: "aspect-[4/3]",
+    maxWidthClass: "max-w-[395px]",
+  },
+  "dry-needling": {
+    src: "/images/services/dry-needling-hero.jpg",
+    alt: "Dry needling physiotherapy session targeting myofascial trigger points to release tight muscle knots and relieve pain at Rachana Physiotherapy Clinic",
+    width: 1024,
+    height: 768,
+    aspectClass: "aspect-[4/3]",
+    maxWidthClass: "max-w-[395px]",
+  },
+};
+
 export default function ServiceDetail() {
   const { slug } = useParams();
   const service = services.find((item) => item.slug === slug);
@@ -25,7 +55,7 @@ export default function ServiceDetail() {
     ],
   };
 
-  const isSpineCare = service.slug === "spine-care";
+  const heroMedia = serviceHeroMedia[service.slug];
 
   return (
     <>
@@ -53,40 +83,19 @@ export default function ServiceDetail() {
 
           <div className="mt-8 grid items-center gap-10 lg:mt-10 lg:grid-cols-[0.94fr_1.06fr] lg:gap-14">
             {/* Left Visual Column */}
-            {isSpineCare ? (
-              <div className="relative mx-auto w-full max-w-[400px]">
+            {heroMedia ? (
+              <div className={`relative mx-auto w-full ${heroMedia.maxWidthClass}`}>
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute -inset-2.5 -z-10 rounded-[2rem] bg-gradient-to-tr from-[#E8DEC9]/55 via-transparent to-[#C39A6B]/20 blur-xl"
+                  className="pointer-events-none absolute -inset-2 -z-10 rounded-[1.85rem] bg-gradient-to-tr from-[#E8DEC9]/50 via-transparent to-[#C39A6B]/20 blur-lg"
                 />
-                <figure className="group relative overflow-hidden rounded-[1.65rem] border border-[#DED4C3] bg-gradient-to-br from-white via-[#FAF7F1] to-[#EFE7D8] p-2 shadow-[0_20px_46px_-16px_rgba(14,28,56,0.14)] sm:p-2.5">
-                  <div className="relative aspect-square w-full overflow-hidden rounded-[1.25rem] border border-[#E5DCCB] bg-[#F7F3EB]">
+                <figure className="group relative overflow-hidden rounded-[1.5rem] border border-[#DED4C3] bg-gradient-to-br from-white via-[#FAF7F1] to-[#EFE7D8] p-1.5 shadow-[0_18px_40px_-16px_rgba(14,28,56,0.14)] sm:p-2">
+                  <div className={`relative ${heroMedia.aspectClass} w-full overflow-hidden rounded-[1.15rem] border border-[#E5DCCB] bg-[#F7F3EB]`}>
                     <img
-                      src="/images/services/spine-care-hero.jpg"
-                      alt="Clinical spine care visualization illustrating relief for neck pain, back pain, disc health support, and mobility improvement at Rachana Physiotherapy Clinic"
-                      width={1024}
-                      height={1024}
-                      fetchPriority="high"
-                      loading="eager"
-                      decoding="async"
-                      className="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.015]"
-                    />
-                  </div>
-                </figure>
-              </div>
-            ) : service.slug === "osteopathy-mrt" ? (
-              <div className="relative mx-auto w-full max-w-[490px] lg:max-w-none">
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -inset-2.5 -z-10 rounded-[2rem] bg-gradient-to-tr from-[#E8DEC9]/55 via-transparent to-[#C39A6B]/20 blur-xl"
-                />
-                <figure className="group relative overflow-hidden rounded-[1.65rem] border border-[#DED4C3] bg-gradient-to-br from-white via-[#FAF7F1] to-[#EFE7D8] p-2 shadow-[0_20px_46px_-16px_rgba(14,28,56,0.14)] sm:p-2.5">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[1.25rem] border border-[#E5DCCB] bg-[#F7F3EB]">
-                    <img
-                      src="/images/services/osteopathy-mrt-hero.jpg"
-                      alt="Osteopathy and Matrix Rhythm Therapy hands-on manual technique easing tight muscles, promoting natural rhythm, and supporting comfortable movement at Rachana Physiotherapy Clinic"
-                      width={1024}
-                      height={768}
+                      src={heroMedia.src}
+                      alt={heroMedia.alt}
+                      width={heroMedia.width}
+                      height={heroMedia.height}
                       fetchPriority="high"
                       loading="eager"
                       decoding="async"
