@@ -25,7 +25,7 @@ export default function Services() {
           <h1 className="display mt-3 max-w-3xl text-[clamp(2.5rem,5vw,4.25rem)]">
             Care that starts with <em>what you need.</em>
           </h1>
-          <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-muted">
+          <p className="mt-5 max-w-2xl text-justify text-[17px] leading-relaxed text-muted">
             Every plan begins with an assessment and a conversation. Browse the approaches available at this physiotherapy clinic in Manish Nagar, Nagpur.
           </p>
         </div>

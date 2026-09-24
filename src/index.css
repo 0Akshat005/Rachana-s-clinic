@@ -34,5 +34,5 @@ img { max-width: 100%; }
   .display em { @apply font-display font-medium italic text-gold-600; }
   .card-base { @apply rounded-2xl border border-line bg-white shadow-card; }
   .skip-link { @apply sr-only fixed left-4 top-4 z-[100] rounded bg-navy-900 px-4 py-2 text-white focus:not-sr-only; }
-  .prose-copy { @apply max-w-[66ch] text-[17px] leading-[1.65] text-muted; }
+  .prose-copy { @apply max-w-[66ch] text-justify text-[17px] leading-[1.65] text-muted; }
 }
