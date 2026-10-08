@@ -6,7 +6,7 @@ import { formatPhone } from "../lib/utils";
 
 function Hours() {
   return (
-    <div className="rounded-2xl border border-line bg-white p-6 shadow-sm sm:p-7">
+    <div className="rounded-2xl border border-line bg-white p-5 shadow-sm sm:p-7">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2.5">
           <Clock size={19} className="text-gold-700" />
@@ -17,22 +17,30 @@ function Hours() {
         </span>
       </div>
       <dl className="mt-5 divide-y divide-line">
-        <div className="flex items-start justify-between gap-4 py-3.5 text-sm">
+        <div className="flex flex-col gap-2 py-3.5 text-sm sm:flex-row sm:items-start sm:justify-between sm:gap-4">
           <dt className="font-semibold text-navy-900">Monday – Saturday</dt>
-          <dd className="text-right text-muted">
-            <span className="block font-medium text-navy-900">8:00 AM – 1:00 PM</span>
-            <span className="block font-medium text-navy-900">4:30 PM – 9:00 PM</span>
+          <dd className="flex flex-wrap items-center gap-2 sm:flex-col sm:items-end sm:gap-0.5 sm:text-right">
+            <span className="inline-flex items-center rounded-lg border border-[#E7DFCE] bg-[#FAF7F1] px-2.5 py-1 text-[13px] font-medium text-navy-900 whitespace-nowrap sm:border-0 sm:bg-transparent sm:p-0 sm:text-sm">
+              8:00 AM – 1:00 PM
+            </span>
+            <span className="inline-flex items-center rounded-lg border border-[#E7DFCE] bg-[#FAF7F1] px-2.5 py-1 text-[13px] font-medium text-navy-900 whitespace-nowrap sm:border-0 sm:bg-transparent sm:p-0 sm:text-sm">
+              4:30 PM – 9:00 PM
+            </span>
           </dd>
         </div>
-        <div className="flex items-start justify-between gap-4 py-3.5 text-sm">
+        <div className="flex flex-col gap-2 py-3.5 text-sm sm:flex-row sm:items-start sm:justify-between sm:gap-4">
           <div>
             <dt className="font-semibold text-navy-900">Sunday</dt>
             <span className="text-[12px] text-muted">Morning session only</span>
           </div>
-          <dd className="text-right font-medium text-navy-900">8:30 AM – 1:00 PM</dd>
+          <dd className="sm:text-right">
+            <span className="inline-flex items-center rounded-lg border border-[#E7DFCE] bg-[#FAF7F1] px-2.5 py-1 text-[13px] font-medium text-navy-900 whitespace-nowrap sm:border-0 sm:bg-transparent sm:p-0 sm:text-sm">
+              8:30 AM – 1:00 PM
+            </span>
+          </dd>
         </div>
       </dl>
-      <p className="mt-3.5 border-t border-line pt-3 text-xs text-muted">
+      <p className="mt-3.5 border-t border-line pt-3 text-justify text-xs text-muted">
         Prior appointment or message is recommended before your visit.
       </p>
     </div>
@@ -69,14 +77,14 @@ export default function Contact() {
           {/* Left Column — Direct Channels, Hours, Location & Map */}
           <div className="space-y-5">
             {/* Direct Clinical Access Card */}
-            <div className="rounded-2xl border border-navy-800 bg-navy-900 p-6 sm:p-7 text-white shadow-[0_14px_36px_-12px_rgba(14,28,56,0.2)]">
+            <div className="rounded-2xl border border-navy-800 bg-navy-900 p-5 sm:p-7 text-white shadow-[0_14px_36px_-12px_rgba(14,28,56,0.2)]">
               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-gold-500">
                 SPEAK WITH THE CLINIC
               </p>
               <h2 className="mt-1 font-display text-2xl font-semibold text-white">
                 Direct Clinical Access
               </h2>
-              <p className="mt-2 text-sm leading-relaxed text-white/75">
+              <p className="mt-2 text-justify text-sm leading-relaxed text-white/75">
                 Prefer an immediate response? Reach our physiotherapy team directly via phone or WhatsApp during clinic hours.
               </p>
 
@@ -112,11 +120,11 @@ export default function Contact() {
               <div className="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-white/15 pt-4 text-xs text-white/75 sm:text-[13px]">
                 <span className="font-medium text-white/60">Direct lines:</span>
                 <div className="flex flex-wrap items-center gap-3 font-semibold text-white">
-                  <a href={`tel:${formatPhone(clinic.phones[0])}`} className="transition hover:text-gold-400">
+                  <a href={`tel:${formatPhone(clinic.phones[0])}`} className="whitespace-nowrap transition hover:text-gold-400">
                     {clinic.phones[0]}
                   </a>
                   <span className="text-white/35">·</span>
-                  <a href={`tel:${formatPhone(clinic.phones[1])}`} className="transition hover:text-gold-400">
+                  <a href={`tel:${formatPhone(clinic.phones[1])}`} className="whitespace-nowrap transition hover:text-gold-400">
                     {clinic.phones[1]}
                   </a>
                 </div>
@@ -127,18 +135,18 @@ export default function Contact() {
             <Hours />
 
             {/* Find Us / Landmark Card */}
-            <div className="rounded-2xl border border-line bg-[#FAF7F1] p-6 shadow-sm sm:p-7">
+            <div className="rounded-2xl border border-line bg-[#FAF7F1] p-5 shadow-sm sm:p-7">
               <div className="flex items-center gap-2.5">
                 <MapPin size={19} className="text-gold-700" />
                 <h2 className="font-display text-xl sm:text-2xl font-semibold text-navy-900">
                   Find the clinic
                 </h2>
               </div>
-              <address className="mt-3.5 not-italic text-[15px] leading-relaxed text-muted">
+              <address className="mt-3.5 not-italic text-justify text-[15px] leading-relaxed text-muted">
                 {clinic.address.line}
               </address>
               <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-[#EAE3D6] pt-3 text-sm">
-                <p className="text-muted">
+                <p className="text-justify text-muted">
                   <span className="font-semibold text-navy-900">Landmark:</span> {clinic.address.landmark}
                 </p>
                 <a
@@ -168,7 +176,7 @@ export default function Contact() {
           <div>
             <BookingForm />
 
-            <aside className="mt-6 rounded-2xl border border-line bg-[#FAF7F1] p-6 sm:p-7 shadow-sm">
+            <aside className="mt-6 rounded-2xl border border-line bg-[#FAF7F1] p-5 sm:p-7 shadow-sm">
               <div className="flex items-center gap-2.5">
                 <FileText size={19} className="text-gold-700" />
                 <h2 className="font-display text-xl sm:text-2xl font-semibold text-navy-900">
@@ -178,15 +186,15 @@ export default function Contact() {
               <ul className="mt-4 space-y-2.5 text-[15px] text-muted">
                 <li className="flex items-start gap-2.5">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-600" />
-                  <span>Previous prescriptions, doctor consultations, or discharge notes</span>
+                  <span className="text-justify">Previous prescriptions, doctor consultations, or discharge notes</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-600" />
-                  <span>Recent X-ray, MRI, or ultrasound imaging reports (if available)</span>
+                  <span className="text-justify">Recent X-ray, MRI, or ultrasound imaging reports (if available)</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-600" />
-                  <span>Comfortable clothing that allows you to move easily during physical assessment</span>
+                  <span className="text-justify">Comfortable clothing that allows you to move easily during physical assessment</span>
                 </li>
               </ul>
             </aside>

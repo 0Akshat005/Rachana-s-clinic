@@ -82,14 +82,14 @@ export function BookingForm() {
     <section
       id="booking"
       aria-labelledby="booking-heading"
-      className="scroll-mt-24 rounded-2xl border border-[#DED4C3] bg-white p-6 shadow-[0_14px_36px_-16px_rgba(14,28,56,0.08)] sm:p-8"
+      className="scroll-mt-24 rounded-2xl border border-[#DED4C3] bg-white p-5 shadow-[0_14px_36px_-16px_rgba(14,28,56,0.08)] sm:p-8"
     >
       <div className="mb-6">
         <p className="eyebrow">APPOINTMENT REQUEST</p>
         <h2 id="booking-heading" className="mt-2 font-display text-2xl sm:text-3xl font-semibold leading-tight text-navy-900">
           Start with a conversation.
         </h2>
-        <p className="mt-2 text-sm text-muted">
+        <p className="mt-2 text-justify text-sm text-muted">
           Choose a preferred time. The clinic will confirm your slot shortly.
         </p>
       </div>
@@ -187,7 +187,7 @@ export function BookingForm() {
               }}
             />
           </div>
-          <p className="mt-1 text-xs text-muted">Past dates are unavailable. The date picker opens from this field.</p>
+          <p className="mt-1 text-justify text-xs text-muted">Past dates are unavailable. The date picker opens from this field.</p>
           {errors.date && (
             <p id="date-error" role="alert" className="mt-1 text-sm text-red-700">
               {errors.date.message}
@@ -211,7 +211,7 @@ export function BookingForm() {
               </span>
             </label>
           </div>
-          {sunday && <p className="mt-2 text-xs text-gold-700">Sunday appointments are available in the morning only.</p>}
+          {sunday && <p className="mt-2 text-justify text-xs text-gold-700">Sunday appointments are available in the morning only.</p>}
           {errors.time && (
             <p role="alert" className="mt-1 text-sm text-red-700">
               {errors.time.message}
@@ -239,7 +239,7 @@ export function BookingForm() {
               aria-describedby={errors.consent ? "consent-error" : undefined}
               {...register("consent")}
             />
-            <span className="text-sm leading-snug text-muted">{t("consent")}</span>
+            <span className="text-justify text-sm leading-snug text-muted">{t("consent")}</span>
           </label>
           {errors.consent && (
             <p id="consent-error" role="alert" className="mt-1 text-sm text-red-700">
