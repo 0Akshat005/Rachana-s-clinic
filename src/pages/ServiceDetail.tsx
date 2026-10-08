@@ -108,7 +108,7 @@ function MrtVisualSlot() {
   const [hasError, setHasError] = useState(false);
 
   return (
-    <figure className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-[#DED4C3] bg-[#F7F4EE] shadow-[0_12px_30px_-14px_rgba(14,28,56,0.1)]">
+    <figure className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl border border-[#DED4C3] bg-[#F7F4EE] shadow-[0_12px_30px_-14px_rgba(14,28,56,0.1)]">
       <div
         className={`flex h-full w-full flex-col items-center justify-center p-6 text-center transition-opacity duration-300 ${
           loaded && !hasError ? "pointer-events-none absolute inset-0 opacity-0" : "opacity-100"
@@ -190,14 +190,14 @@ function OsteopathyMrtArticleContent({ service }: { service: (typeof services)[n
           </h3>
         </div>
 
-        {/* Technique 1: Osteopathy (Primary Visual) */}
+        {/* Technique 1: Cranial & Manual Osteopathy (Primary Visual) */}
         <div className="grid gap-6 sm:gap-8 lg:grid-cols-[1.12fr_0.88fr] lg:items-center">
-          <figure className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-[#DED4C3] bg-[#FAF7F1] shadow-[0_14px_34px_-14px_rgba(14,28,56,0.12)]">
+          <figure className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl border border-[#DED4C3] bg-[#FAF7F1] shadow-[0_14px_34px_-14px_rgba(14,28,56,0.12)]">
             <img
-              src="/images/services/osteopathy-mrt-hero.jpg"
-              alt="Hands-on osteopathic manual therapy assessing and mobilizing spinal soft tissue and muscle layers"
+              src="/images/services/osteopathy-technique.jpg"
+              alt="Hands-on cranial osteopathy and suboccipital manual release relieving head, neck, and cranial tension at Rachana Physiotherapy Clinic"
               width={1024}
-              height={768}
+              height={682}
               loading="lazy"
               decoding="async"
               className="h-full w-full object-cover object-center"
@@ -205,13 +205,13 @@ function OsteopathyMrtArticleContent({ service }: { service: (typeof services)[n
           </figure>
           <div className="space-y-3">
             <span className="inline-block text-[11px] font-semibold uppercase tracking-[0.14em] text-gold-700">
-              HANDS-ON APPROACH · OSTEOPATHY
+              HANDS-ON APPROACH · CRANIAL & MANUAL OSTEOPATHY
             </span>
             <h4 className="font-display text-2xl font-semibold text-navy-900">
-              Structural & Manual Alignment
+              Cranial & Suboccipital Manual Release
             </h4>
             <p className="prose-copy text-justify text-[15px] sm:text-[16px]">
-              Attentive hands-on evaluation of joint dynamics, muscle tone, and myofascial restrictions. Rather than treating an isolated spot, osteopathic techniques assess how movement in one area influences posture, spinal mechanics, and overall functional ease.
+              A gentle, non-invasive manual technique applying subtle, sustained holds to the cranium, base of the skull (subocciput), and cervical spine. Without forceful manipulation, this light-touch approach eases deep tension in the neck muscles and cranial fascia, relieving tension headaches and neck stiffness while calming the nervous system to restore natural movement balance.
             </p>
           </div>
         </div>
@@ -242,7 +242,7 @@ function OsteopathyMrtArticleContent({ service }: { service: (typeof services)[n
         <h2 className="display text-3xl">Who it can help</h2>
         <div className="mt-4 space-y-3">
           <p className="prose-copy text-justify">
-            This integrated manual approach may benefit individuals experiencing ongoing muscle tightness, postural neck and back stiffness, soft-tissue tension, or restricted movement during daily activities.
+            This integrated manual approach may benefit individuals experiencing ongoing muscle tightness, postural neck and back stiffness, tension headaches, soft-tissue tension, or restricted movement during daily activities.
           </p>
           <p className="prose-copy text-justify">
             Whether discomfort stems from desk posture, athletic training, or repetitive strain, suitability is always established through an individual clinical assessment to ensure it matches your specific recovery goals.
