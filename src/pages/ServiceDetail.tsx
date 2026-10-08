@@ -168,10 +168,10 @@ function OsteopathyMrtArticleContent({ service }: { service: (typeof services)[n
       <section id="what-it-is">
         <h2 className="display text-3xl">What it is</h2>
         <div className="mt-4 space-y-4">
-          <p className="prose-copy max-w-none text-left text-pretty">
+          <p className="prose-copy max-w-none text-justify">
             Osteopathy is an attentive manual therapy approach centered on the direct relationship between your body&apos;s physical structure and the way you move. By evaluating the musculoskeletal framework—including joints, deep muscular layers, and connective fascia—it works to relieve localized restriction, address areas of stiffness, and encourage functional balance throughout everyday activities.
           </p>
-          <p className="prose-copy max-w-none text-left text-pretty">
+          <p className="prose-copy max-w-none text-justify">
             Matrix Rhythm Therapy (MRT) complements this hands-on treatment by introducing gentle, rhythmic micro-oscillations directly into the targeted soft tissue. These measured frequencies help ease tight muscle fibers, soothe tissue tension, and assist your body in restoring comfortable, unrestricted movement.
           </p>
         </div>
@@ -206,7 +206,7 @@ function OsteopathyMrtArticleContent({ service }: { service: (typeof services)[n
             <h4 className="font-display text-2xl font-semibold text-navy-900 sm:text-[26px]">
               Cranial & Suboccipital Manual Release
             </h4>
-            <p className="prose-copy max-w-none text-left text-pretty text-[15px] sm:text-[16px]">
+            <p className="prose-copy max-w-none text-justify text-[15px] sm:text-[16px]">
               A gentle, non-invasive manual technique applying subtle, sustained holds to the cranium, base of the skull (subocciput), and cervical spine. Without forceful manipulation, this light-touch approach eases deep tension in the neck muscles and cranial fascia, relieving tension headaches and neck stiffness while calming the nervous system to restore natural movement balance.
             </p>
           </div>
@@ -221,7 +221,7 @@ function OsteopathyMrtArticleContent({ service }: { service: (typeof services)[n
             <h4 className="font-display text-2xl font-semibold text-navy-900 sm:text-[26px]">
               Targeted Tissue Oscillations
             </h4>
-            <p className="prose-copy max-w-none text-left text-pretty text-[15px] sm:text-[16px]">
+            <p className="prose-copy max-w-none text-justify text-[15px] sm:text-[16px]">
               Matrix Rhythm Therapy introduces gentle, mechanical micro-oscillations synchronized with the body’s physiological frequencies. Applied along taut muscle bands and connective tissue, these rhythmic pulses help alleviate deep tension and encourage soft-tissue flexibility.
             </p>
           </div>
@@ -237,10 +237,10 @@ function OsteopathyMrtArticleContent({ service }: { service: (typeof services)[n
       <section id="who-it-can-help">
         <h2 className="display text-3xl">Who it can help</h2>
         <div className="mt-4 space-y-3">
-          <p className="prose-copy max-w-none text-left text-pretty">
+          <p className="prose-copy max-w-none text-justify">
             This integrated manual approach may benefit individuals experiencing ongoing muscle tightness, postural neck and back stiffness, tension headaches, soft-tissue tension, or restricted movement during daily activities.
           </p>
-          <p className="prose-copy max-w-none text-left text-pretty">
+          <p className="prose-copy max-w-none text-justify">
             Whether discomfort stems from desk posture, athletic training, or repetitive strain, suitability is always established through an individual clinical assessment to ensure it matches your specific recovery goals.
           </p>
         </div>
@@ -250,10 +250,10 @@ function OsteopathyMrtArticleContent({ service }: { service: (typeof services)[n
       <section id="what-to-expect">
         <h2 className="display text-3xl">What to expect</h2>
         <div className="mt-4 space-y-3">
-          <p className="prose-copy max-w-none text-left text-pretty">
+          <p className="prose-copy max-w-none text-justify">
             Your consultation begins with a focused clinical evaluation where your physiotherapist assesses functional movement patterns and clearly explains the planned techniques before treatment commences.
           </p>
-          <p className="prose-copy max-w-none text-left text-pretty">
+          <p className="prose-copy max-w-none text-justify">
             During the session, gentle osteopathic mobilizations and rhythmic oscillations are continually adjusted based on your comfort, ongoing feedback, and physical response to provide a calm, supportive experience.
           </p>
         </div>
@@ -263,10 +263,10 @@ function OsteopathyMrtArticleContent({ service }: { service: (typeof services)[n
       <section id="safety-suitability">
         <h2 className="display text-3xl">Safety & suitability</h2>
         <div className="mt-4 space-y-3">
-          <p className="prose-copy max-w-none text-left text-pretty">
+          <p className="prose-copy max-w-none text-justify">
             Treatment is thoughtfully tailored to your individual health background, physical needs, and clinical assessment findings. Hands-on mobilizations and rhythmic therapy are applied only after evaluating your medical history.
           </p>
-          <p className="prose-copy max-w-none text-left text-pretty">
+          <p className="prose-copy max-w-none text-justify">
             Your physiotherapist will determine whether Osteopathy, Matrix Rhythm Therapy, guided exercise, or an alternative physiotherapy approach is most appropriate and safe for your specific condition.
           </p>
         </div>
@@ -428,19 +428,19 @@ export default function ServiceDetail() {
             <div className="space-y-11 sm:space-y-12">
               <section>
                 <h2 className="display text-3xl">What it is</h2>
-                <p className="prose-copy max-w-none mt-4 text-left text-pretty">{service.what}</p>
+                <p className="prose-copy max-w-none mt-4 text-justify">{service.what}</p>
               </section>
               <section>
                 <h2 className="display text-3xl">Who it can help</h2>
-                <p className="prose-copy max-w-none mt-4 text-left text-pretty">{service.who}</p>
+                <p className="prose-copy max-w-none mt-4 text-justify">{service.who}</p>
               </section>
               <section>
                 <h2 className="display text-3xl">What to expect</h2>
-                <p className="prose-copy max-w-none mt-4 text-left text-pretty">{service.expect}</p>
+                <p className="prose-copy max-w-none mt-4 text-justify">{service.expect}</p>
               </section>
               <section>
                 <h2 className="display text-3xl">Safety & suitability</h2>
-                <p className="prose-copy max-w-none mt-4 text-left text-pretty">{service.safety}</p>
+                <p className="prose-copy max-w-none mt-4 text-justify">{service.safety}</p>
               </section>
               {service.slug === "spine-care" && (
                 <section
