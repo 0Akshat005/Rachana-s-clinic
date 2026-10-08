@@ -47,6 +47,15 @@ const serviceHeroMedia: Record<
     maxWidthClass: "max-w-[555px]",
     imgPositionClass: "object-center",
   },
+  "tecar-laser": {
+    src: "/images/services/tecar-laser-hero.jpg",
+    alt: "Tecar and laser physiotherapy session providing targeted electro-physical therapy and deep-tissue support to a patient's knee at Rachana Physiotherapy Clinic",
+    width: 1024,
+    height: 682,
+    aspectClass: "aspect-[3/2]",
+    maxWidthClass: "max-w-[555px]",
+    imgPositionClass: "object-center",
+  },
 };
 
 const serviceHighlights: Record<string, readonly [string, string, string, string]> = {
