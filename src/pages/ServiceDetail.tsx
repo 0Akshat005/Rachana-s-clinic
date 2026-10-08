@@ -38,6 +38,15 @@ const serviceHeroMedia: Record<
     maxWidthClass: "max-w-[535px]",
     imgPositionClass: "object-center",
   },
+  "cupping-hijama": {
+    src: "/images/services/cupping-hijama-hero.jpg",
+    alt: "Hijama cupping therapy session with clinical suction cups placed along the back to ease muscle tightness and support myofascial decompression at Rachana Physiotherapy Clinic",
+    width: 1024,
+    height: 682,
+    aspectClass: "aspect-[3/2]",
+    maxWidthClass: "max-w-[555px]",
+    imgPositionClass: "object-center",
+  },
 };
 
 const serviceHighlights: Record<string, readonly [string, string, string, string]> = {
