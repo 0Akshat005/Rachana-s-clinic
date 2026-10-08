@@ -104,63 +104,59 @@ const serviceHighlights: Record<string, readonly [string, string, string, string
 };
 
 function MrtVisualSlot() {
-  const [loaded, setLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
-  return (
-    <figure className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl border border-[#DED4C3] bg-[#F7F4EE] shadow-[0_12px_30px_-14px_rgba(14,28,56,0.1)]">
-      <div
-        className={`flex h-full w-full flex-col items-center justify-center p-6 text-center transition-opacity duration-300 ${
-          loaded && !hasError ? "pointer-events-none absolute inset-0 opacity-0" : "opacity-100"
-        }`}
-      >
-        <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#E2D8C6] bg-white/80 shadow-sm">
-          <svg
-            viewBox="0 0 64 64"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            className="h-7 w-7 text-navy-900"
-          >
-            <circle cx="32" cy="32" r="14" fill="#C39A6B" fillOpacity="0.14" />
-            <path
-              d="M12 32C15.5 32 17 24.5 20.5 24.5C24 24.5 25.5 39.5 29 39.5C32.5 39.5 34 22 37.5 22C41 22 42.5 37 46 37C49 37 50.5 32 53 32"
-              stroke="#A87A45"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <circle cx="20.5" cy="24.5" r="2" fill="#A87A45" />
-            <circle cx="37.5" cy="22" r="2" fill="#A87A45" />
-            <circle cx="46" cy="37" r="2" fill="#A87A45" />
-          </svg>
+  if (hasError) {
+    return (
+      <figure className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl border border-[#DED4C3] bg-[#F7F4EE] shadow-[0_14px_34px_-14px_rgba(14,28,56,0.12)]">
+        <div className="flex h-full w-full flex-col items-center justify-center p-6 text-center">
+          <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#E2D8C6] bg-white/80 shadow-sm">
+            <svg
+              viewBox="0 0 64 64"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              className="h-7 w-7 text-navy-900"
+            >
+              <circle cx="32" cy="32" r="14" fill="#C39A6B" fillOpacity="0.14" />
+              <path
+                d="M12 32C15.5 32 17 24.5 20.5 24.5C24 24.5 25.5 39.5 29 39.5C32.5 39.5 34 22 37.5 22C41 22 42.5 37 46 37C49 37 50.5 32 53 32"
+                stroke="#A87A45"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <circle cx="20.5" cy="24.5" r="2" fill="#A87A45" />
+              <circle cx="37.5" cy="22" r="2" fill="#A87A45" />
+              <circle cx="46" cy="37" r="2" fill="#A87A45" />
+            </svg>
+          </div>
+          <p className="mt-4 font-display text-lg font-semibold text-navy-900 sm:text-xl">
+            Matrix Rhythm Therapy
+          </p>
+          <p className="mt-1 text-xs text-muted">
+            Rhythmic Physiological Micro-Oscillation
+          </p>
+          <span className="mt-3.5 inline-flex items-center rounded-full border border-[#E4DBC8] bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-gold-700">
+            Technique Visual Slot
+          </span>
         </div>
-        <p className="mt-4 font-display text-lg font-semibold text-navy-900 sm:text-xl">
-          Matrix Rhythm Therapy
-        </p>
-        <p className="mt-1 text-xs text-muted">
-          Rhythmic Physiological Micro-Oscillation
-        </p>
-        <span className="mt-3.5 inline-flex items-center rounded-full border border-[#E4DBC8] bg-white/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-gold-700">
-          Technique Visual Slot
-        </span>
-      </div>
+      </figure>
+    );
+  }
 
-      {!hasError && (
-        <img
-          src="/images/services/mrt-technique.jpg"
-          alt="Matrix Rhythm Therapy application delivering gentle physiological micro-oscillations along taut soft tissue"
-          width={1024}
-          height={768}
-          loading="lazy"
-          decoding="async"
-          onLoad={() => setLoaded(true)}
-          onError={() => setHasError(true)}
-          className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-300 ${
-            loaded ? "opacity-100" : "pointer-events-none opacity-0"
-          }`}
-        />
-      )}
+  return (
+    <figure className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl border border-[#DED4C3] bg-[#FAF7F1] shadow-[0_14px_34px_-14px_rgba(14,28,56,0.12)]">
+      <img
+        src="/images/services/mrt-technique.jpg"
+        alt="Matrix Rhythm Therapy application delivering gentle physiological micro-oscillations along upper back muscles and soft tissue at Rachana Physiotherapy Clinic"
+        width={1024}
+        height={682}
+        loading="lazy"
+        decoding="async"
+        onError={() => setHasError(true)}
+        className="h-full w-full object-cover object-center"
+      />
     </figure>
   );
 }
