@@ -19,38 +19,40 @@ export default function Services() {
         title="Physiotherapy Services in Manish Nagar, Nagpur | Rachana"
         description="Explore physiotherapy services including spine care, osteopathy, dry needling, cupping, Tecar and laser therapy, sports rehabilitation and Pilates in Nagpur."
       />
-      <section className="section border-b border-line">
+      <section className="border-b border-line/80 pt-8 pb-7 sm:pt-10 sm:pb-8 lg:pt-12 lg:pb-10">
         <div className="container-site max-w-[1240px]">
-          <p className="eyebrow">SERVICES</p>
-          <h1 className="display mt-3 max-w-3xl text-[clamp(2.5rem,5vw,4.25rem)]">
+          <p className="eyebrow">SERVICES & THERAPIES</p>
+          <h1 className="display mt-2.5 max-w-3xl text-[clamp(2.35rem,4.5vw,3.85rem)] leading-[1.12]">
             Care that starts with <em>what you need.</em>
           </h1>
-          <p className="mt-5 max-w-2xl text-justify text-[17px] leading-relaxed text-muted">
+          <p className="mt-3.5 max-w-2xl text-justify text-base leading-relaxed text-muted sm:text-[17px]">
             Every plan begins with an assessment and a conversation. Browse the clinical approaches and therapies available to support your recovery.
           </p>
         </div>
       </section>
-      <section className="section">
-        <div className="container-site">
-          <div aria-label="Filter services" className="mb-9 flex flex-wrap gap-2" role="group">
-            {filters.map((item) => (
-              <button
-                key={item}
-                aria-pressed={filter === item}
-                onClick={() => setFilter(item)}
-                className={`min-h-11 rounded-full border px-4 text-sm font-semibold transition-colors ${
-                  filter === item
-                    ? "border-navy-900 bg-navy-900 text-white"
-                    : "border-line bg-white text-navy-900 hover:bg-sand"
-                }`}
-              >
-                {item}
-              </button>
-            ))}
+      <section className="pt-7 pb-16 sm:pt-9 sm:pb-20 lg:pt-10 lg:pb-24">
+        <div className="container-site max-w-[1240px]">
+          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b border-line/70 pb-5">
+            <div aria-label="Filter services" className="flex flex-wrap items-center gap-2" role="group">
+              {filters.map((item) => (
+                <button
+                  key={item}
+                  aria-pressed={filter === item}
+                  onClick={() => setFilter(item)}
+                  className={`min-h-10 rounded-full px-4 text-xs sm:text-sm font-semibold transition-all duration-200 ${
+                    filter === item
+                      ? "bg-navy-900 text-white shadow-sm"
+                      : "border border-line bg-white text-navy-900 hover:border-gold-500/60 hover:bg-[#FAF7F1]"
+                  }`}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+            <p className="text-xs sm:text-sm text-muted">
+              <span className="font-semibold text-navy-900">{visible.length}</span> {visible.length === 1 ? "therapy" : "therapies"} available
+            </p>
           </div>
-          <p className="mb-5 text-sm text-muted">
-            <span className="font-semibold text-navy-900">{visible.length}</span> ways we may support your movement.
-          </p>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {visible.map((service, index) => (
               <motion.div
